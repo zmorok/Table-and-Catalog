@@ -5,6 +5,7 @@ const Catalog = ({ products }) => {
 	const [sortOrder, setSortOrder] = useState('asc')
 	const isNew = product => (product.isNew ? 'Новинка!!' : '')
 
+	// функция высчитывания цены
 	const renderPrice = product => {
 		if (product.discount > 0) {
 			const discountedPrice =
@@ -22,6 +23,7 @@ const Catalog = ({ products }) => {
 		return <div className='price'>Стоимость: {product.price}</div>
 	}
 
+	// функция изменения способа сортировки
 	const sortProducts = criteria => {
 		if (sortBy === criteria) {
 			setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
@@ -31,22 +33,19 @@ const Catalog = ({ products }) => {
 		}
 	}
 
+	// сортировка массива продуктов по sortBy и sortOrder
 	const sortedProducts = () => {
-		if (!sortBy) return products
-
-		const sorted = [...products].sort((a, b) => {
+		return products.slice().sort((a, b) => {
 			if (sortOrder === 'asc') {
-				return a[sortBy] > b[sortBy] ? -1 : 1
+				return a[sortBy] > b[sortBy] ? 1 : -1
 			} else {
-				return a[sortBy] < b[sortBy] ? -1 : 1
+				return a[sortBy] < b[sortBy] ? 1 : -1
 			}
 		})
-
-		return sorted
 	}
 
 	return (
-		<div className='content'>
+		<div className='catalog-content'>
 			<div className='sort-buttons'>
 				<button onClick={() => sortProducts('name')}>
 					Сортировать по наименованию

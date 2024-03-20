@@ -4,10 +4,12 @@ const SortTable = ({ products }) => {
 	const [sortBy, setSortBy] = useState(null)
 	const [sortOrder, setSortOrder] = useState('asc')
 
+	// функция изменения порядка сортировки
 	const toggleSortOrder = () => {
 		setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
 	}
 
+	// функция изменения способа сортировки
 	const sortProducts = field => {
 		if (sortBy === field) {
 			toggleSortOrder()
@@ -17,10 +19,8 @@ const SortTable = ({ products }) => {
 		}
 	}
 
+	// сортировка массива продуктов по sortBy и sortOrder
 	const sortedProducts = () => {
-		if (!sortBy) {
-			return products
-		}
 		return products.slice().sort((a, b) => {
 			if (sortOrder === 'asc') {
 				return a[sortBy] > b[sortBy] ? 1 : -1

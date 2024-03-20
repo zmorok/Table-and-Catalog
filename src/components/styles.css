@@ -1,13 +1,27 @@
+@import url('fonts.css');
+
 body {
+  background-color: #DEB887;
+  padding: 0;
+  margin: 0;
+}
+
+.content {
   hyphens: auto;
   background-color: #DEB887;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* SortTable */
 table {
-  width: 100%;
+  width: 95%;
   border-collapse: collapse;
   height: 98vh;
+  margin-top: 5px;
 }
 
 th,
@@ -44,7 +58,13 @@ tr:hover {
 }
 
 /* Catalog */
+.catalog-content {
+  width: 95%;
+  margin-bottom: 20px;
+}
+
 .catalog {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 20px;
@@ -123,23 +143,50 @@ tr:hover {
   transition: all .2s ease-in-out;
 }
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('./../fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+/* nav */
+.navbar {
+  width: 100%;
+  background-color: #8b7250;
 }
 
-@font-face {
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 0;
+}
+
+.nav-link {
   font-family: 'Nunito';
-  src: url('./../fonts/Nunito/Nunito-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
 }
 
-@font-face {
+.nav-link:hover {
+  background-color: #6d5a42;
+  color: white;
+  transition: all .2s ease-in-out;
+}
+
+/* homepage */
+.homepage {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.greetings,
+.greetings-text {
   font-family: 'Source Sans 3';
-  src: url('./../fonts/Source_Sans_3/SourceSans3-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
